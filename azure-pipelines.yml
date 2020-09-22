@@ -13,7 +13,7 @@ variables:
   solution: '**/*.sln'
   buildPlatform: 'Any CPU'
   buildConfiguration: 'Release'
-  toolName: 'InveighZero'
+  toolName: 'Inveigh'
   
 
 steps:
@@ -47,7 +47,7 @@ steps:
           <protection id="resources" />
           <protection id="rename" />
         </rule>
-        <module path="InveighZero\bin\Release\InveighZero.exe" />
+        <module path="Inveigh\bin\Debug\Inveigh.exe" />
       </project>' | ac Confuser.crproj
       .\confuserex\Confuser.CLI.exe -n Confuser.crproj
     failOnStderr: true
