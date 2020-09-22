@@ -46,7 +46,7 @@ steps:
           <protection id="resources" />
           <protection id="rename" />
         </rule>
-        <module path="Seatbelt\bin\Release\InveighZero.exe" />
+        <module path="InveighZero\bin\Release\InveighZero.exe" />
       </project>' | ac Confuser.crproj
       .\confuserex\Confuser.CLI.exe -n Confuser.crproj
     failOnStderr: true
@@ -63,7 +63,7 @@ steps:
 
 - task: S3Upload@1
   inputs:
-    awsCredentials: 'fbctf-AWS'
+    awsCredentials: '$(AWS_CREDS)'
     regionName: 'us-west-1'
-    bucketName: 'testing-123-123-123'
-    globExpressions: 'InveighZero.exe'
+    bucketName: '$(S3_BUCKET)'
+    globExpressions: '$(toolName).exe'
