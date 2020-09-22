@@ -14,6 +14,7 @@ variables:
   buildPlatform: 'Any CPU'
   buildConfiguration: 'Release'
   toolName: 'InveighZero'
+  
 
 steps:
 - task: NuGetToolInstaller@1
@@ -63,7 +64,7 @@ steps:
 
 - task: S3Upload@1
   inputs:
-    awsCredentials: '$(AWS_CREDS)'
+    awsCredentials: $(AWS_CREDS)
     regionName: 'us-west-1'
-    bucketName: '$(S3_BUCKET)'
+    bucketName: $(S3_BUCKET)
     globExpressions: '$(toolName).exe'
